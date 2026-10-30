@@ -1,0 +1,66 @@
+# dsh-npu 的默认装配（v1.0.0 · schema v2）。
+# 机器相关的差异（flm 路径、端口、token）放到 profile 的 cordis.patch.yml 里覆盖。
+#
+# 这里只插入 npu-runtime 一行：LLM provider `npu-local` 由插件自己 registerAdapter。
+#
+# 槽位（slots）按 backend 字段区分：
+#   backend: flm               → FastFlowLM / AMD XDNA2 NPU
+#   backend: llamacpp-vulkan   → llama.cpp GPU（也可 rocm/cuda；运行时按 detect 选）
+# 模型清单来自实测（见 README「模型怎么选」）：
+#   hy-mt2-flash:1.8b  专职翻译（数字/日期/代码保真最好）
+#   qwen3.5:0.8b       通用对话、整理（--embed 1 同进程顺带 embed-gemma:300m）
+#   qwen2.5-1.5b gguf  GPU 侧对话/代码（第五框架的第二引擎）
+
+- insert:
+    - id: npu-runtime
+      name: 'dsh-npu'
+      config:
+        schema: 2
+        provider: npu-local
+        displayName: '燧心 · 本地推理'
+        # 便携版 flm.exe 的路径；不在 PATH 上就必须改成绝对路径
+        exePath: flm
+        dataRoot: ''
+        mode: auto
+        frontPort: 52630
+        bindHost: 127.0.0.1
+        readyTimeoutSec: 180
+        # 给局域网其它软件用时设一个 Bearer token；留空表示不校验
+        apiToken: ''
+        updateCheck: true
+        # 第五框架：NPU 与 GPU 两个引擎协同（需同时有 flm 槽位与 llamacpp 槽位）
+        hybrid:
+          enabled: true
+          mode: auto
+          draftModel: 'qwen3.5:0.8b'
+          verifyModel: 'Qwen2.5-1.5B-Instruct-Q4_K_M.gguf'
+        slots:
+          # 通用对话 / 整理；--embed 1 让同一进程顺带服务 embed-gemma:300m
+          - id: chat
+            backend: flm
+            model: 'qwen3.5:0.8b'
+            name: Qwen3.5 0.8B (NPU)
+            contextWindow: 8192
+            think: false
+            embed: true
+            alsoServes: ['embed-gemma:300m']
+            idleSec: 180
+            args: ['serve', '{model}', '--port', '{port}', '--quiet']
+          # 专职翻译：1k 上下文、单轮，只适合整段翻译
+          - id: mt
+            backend: flm
+            model: 'hy-mt2-flash:1.8b'
+            name: Hy-MT2 1.8B (NPU)
+            contextWindow: 1024
+            think: false
+            llm: true
+            idleSec: 60
+            args: ['serve', '{model}', '--port', '{port}', '--quiet']
+          # GPU 引擎（第五框架用；gguf 不存在时会被标 stale，不影响 NPU 槽位）
+          - id: gpu
+            backend: llamacpp-vulkan
+            model: 'Qwen2.5-1.5B-Instruct-Q4_K_M.gguf'
+            name: Qwen2.5 1.5B (GPU)
+            contextWindow: 4096
+            think: false
+            idleSec: 120

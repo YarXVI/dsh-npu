@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="燧心 Hearthcore · dsh-npu">
+  <defs>
+    <linearGradient id="ember" x1="256" y1="120" x2="256" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF7A6E"/>
+      <stop offset=".55" stop-color="#E5484D"/>
+      <stop offset="1" stop-color="#7A1F24"/>
+    </linearGradient>
+    <radialGradient id="core" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFF3EC" stop-opacity=".98"/>
+      <stop offset=".35" stop-color="#FFB27A" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#E5484D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="spark" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFD6AA" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#F2A33C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="#0B0C0F"/>
+  <circle cx="256" cy="268" r="196" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+  <circle cx="256" cy="268" r="168" fill="none" stroke="#ffffff" stroke-opacity=".07"/>
+  <path d="M256 96 L412 366 Q420 380 404 380 H108 Q92 380 100 366 Z"
+        fill="none" stroke="url(#ember)" stroke-width="20" stroke-linejoin="round"/>
+  <circle cx="256" cy="300" r="96" fill="url(#core)"/>
+  <circle cx="256" cy="300" r="40" fill="#FFF3EC"/>
+  <circle cx="256" cy="300" r="24" fill="#FFB27A"/>
+  <circle cx="256" cy="96" r="40" fill="url(#spark)"/>
+  <circle cx="412" cy="372" r="34" fill="url(#spark)"/>
+  <circle cx="100" cy="372" r="34" fill="url(#spark)"/>
+  <circle cx="256" cy="96" r="10" fill="#FFD6AA"/>
+  <circle cx="412" cy="372" r="9" fill="#F2A33C"/>
+  <circle cx="100" cy="372" r="9" fill="#F2A33C"/>
+</svg>
