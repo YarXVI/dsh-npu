@@ -1,0 +1,130 @@
+{
+  "format": 1,
+  "title": {
+    "en": "YarXVI · DSH Plugins",
+    "zh": "YarXVI · DSH 插件源"
+  },
+  "description": {
+    "en": "Plugins by YarXVI for DeepSeek Harness: dsh-npu (local NPU/GPU inference), dsh-plugin-dsh-sync (device sync), dsh-disaster-recovery (Casket snapshots).",
+    "zh": "YarXVI 的 DSH 插件源：燧心（本地 NPU/GPU 推理）、设备同步、忆匣（灾备快照）。"
+  },
+  "metadata": {
+    "categories": {
+      "inference": {
+        "title": {
+          "en": "Inference",
+          "zh": "本地推理"
+        }
+      },
+      "infra": {
+        "title": {
+          "en": "Infrastructure",
+          "zh": "基础设施"
+        }
+      },
+      "sync": {
+        "title": {
+          "en": "Sync",
+          "zh": "同步"
+        }
+      }
+    },
+    "labels": {
+      "local-llm": {
+        "title": {
+          "en": "Local LLM",
+          "zh": "本地大模型"
+        }
+      },
+      "npu": {
+        "title": {
+          "en": "NPU",
+          "zh": "NPU"
+        }
+      },
+      "amd": {
+        "title": {
+          "en": "AMD XDNA / RDNA",
+          "zh": "AMD 双引擎"
+        }
+      },
+      "hybrid": {
+        "title": {
+          "en": "Hybrid inference",
+          "zh": "混合推理"
+        }
+      },
+      "offline": {
+        "title": {
+          "en": "Works offline",
+          "zh": "断网可用"
+        }
+      },
+      "no-orphan": {
+        "title": {
+          "en": "No orphan processes",
+          "zh": "零残留进程"
+        }
+      },
+      "openai-compatible": {
+        "title": {
+          "en": "OpenAI compatible",
+          "zh": "OpenAI 兼容"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-npu",
+      "title": {
+        "en": "Hearthcore · Local NPU/GPU",
+        "zh": "燧心 · 本地推理"
+      },
+      "description": {
+        "en": "Run local LLMs on AMD NPU (FastFlowLM) and GPU (llama.cpp Vulkan) on demand: one OpenAI-compatible port, ignition on first token, idle sleep, zero orphan processes, and the amd-hybrid fifth framework that drives NPU and GPU as two fires under one request.",
+        "zh": "在本机 AMD NPU（FastFlowLM）与 GPU（llama.cpp Vulkan）上按需点火运行本地模型：对外只有一个 OpenAI 兼容端口，首问点火、空闲即熄、DSH 退出进程树清零；第五框架 amd-hybrid 让 NPU 与 GPU 双引擎协同服务同一个请求。"
+      },
+      "icon": "icon.png",
+      "author": "YarXVI",
+      "homepage": "https://github.com/YarXVI/dsh-npu#readme",
+      "repository": {
+        "url": "https://github.com/YarXVI/dsh-npu"
+      },
+      "metadata": {
+        "category": "inference",
+        "keywords": [
+          "npu",
+          "local-llm",
+          "amd",
+          "xdna",
+          "fastflowlm",
+          "llama.cpp",
+          "hybrid",
+          "openai-compatible"
+        ],
+        "labels": [
+          "local-llm",
+          "npu",
+          "amd",
+          "hybrid",
+          "offline",
+          "no-orphan",
+          "openai-compatible"
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793385349,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/YarXVI/dsh-npu",
+            "commit": "9252a60ebfdb94fcda0e177da92d8cc483a16fa7"
+          }
+        }
+      ]
+    }
+  ]
+}
