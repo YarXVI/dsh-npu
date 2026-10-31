@@ -1,0 +1,500 @@
+{
+  "schema": 1,
+  "at": "2026-10-30T18:30:29.366Z",
+  "host": {
+    "platform": "win32",
+    "node": "v26.12.1",
+    "cpus": 24
+  },
+  "assets": {
+    "flm": "D:\\dsh-npu-data\\frameworks\\flm-1.0.11\\flm.exe",
+    "llama": "D:\\dsh-npu-data\\runtimes\\llamacpp-vulkan-b11871\\llama-server.exe",
+    "gguf": "Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"
+  },
+  "quick": false,
+  "engines": {
+    "npu": {
+      "id": "npu",
+      "coldStartMs": 501,
+      "samples": [
+        {
+          "ms": 1760,
+          "tokens": 62,
+          "tokPerSec": 35.23
+        },
+        {
+          "ms": 1769,
+          "tokens": 62,
+          "tokPerSec": 35.05
+        },
+        {
+          "ms": 1763,
+          "tokens": 62,
+          "tokPerSec": 35.17
+        }
+      ],
+      "avg": {
+        "tokPerSec": 35.15,
+        "ms": 1764,
+        "tokens": 62
+      },
+      "model": "qwen3.5:0.8b"
+    },
+    "gpu": {
+      "id": "gpu",
+      "coldStartMs": 52,
+      "samples": [
+        {
+          "ms": 526,
+          "tokens": 64,
+          "tokPerSec": 121.67
+        },
+        {
+          "ms": 496,
+          "tokens": 64,
+          "tokPerSec": 129.03
+        },
+        {
+          "ms": 483,
+          "tokens": 64,
+          "tokPerSec": 132.51
+        }
+      ],
+      "avg": {
+        "tokPerSec": 127.74,
+        "ms": 502,
+        "tokens": 64
+      },
+      "model": "Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"
+    }
+  },
+  "hybrid": {
+    "modes": [
+      {
+        "mode": "route",
+        "kind": "short-zh",
+        "ms": 246,
+        "ok": true,
+        "engine": "gpu",
+        "winner": "gpu",
+        "chars": 43
+      },
+      {
+        "mode": "route",
+        "kind": "translate",
+        "ms": 811,
+        "ok": true,
+        "engine": "npu",
+        "winner": "npu",
+        "chars": 101
+      },
+      {
+        "mode": "route",
+        "kind": "code",
+        "ms": 532,
+        "ok": true,
+        "engine": "gpu",
+        "winner": "gpu",
+        "chars": 220
+      },
+      {
+        "mode": "route",
+        "kind": "long-zh",
+        "ms": 537,
+        "ok": true,
+        "engine": "gpu",
+        "winner": "gpu",
+        "chars": 118
+      },
+      {
+        "mode": "route",
+        "kind": "zh-en-mix",
+        "ms": 195,
+        "ok": true,
+        "engine": "gpu",
+        "winner": "gpu",
+        "chars": 28
+      },
+      {
+        "mode": "race",
+        "kind": "short-zh",
+        "ms": 375,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 66
+      },
+      {
+        "mode": "race",
+        "kind": "translate",
+        "ms": 185,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 99
+      },
+      {
+        "mode": "race",
+        "kind": "code",
+        "ms": 512,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 183
+      },
+      {
+        "mode": "race",
+        "kind": "long-zh",
+        "ms": 502,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 115
+      },
+      {
+        "mode": "race",
+        "kind": "zh-en-mix",
+        "ms": 151,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 27
+      },
+      {
+        "mode": "cascade",
+        "kind": "short-zh",
+        "ms": 1893,
+        "ok": true,
+        "engine": "npu",
+        "winner": "npu",
+        "chars": 70
+      },
+      {
+        "mode": "cascade",
+        "kind": "translate",
+        "ms": 816,
+        "ok": true,
+        "engine": "npu",
+        "winner": "npu",
+        "chars": 101
+      },
+      {
+        "mode": "cascade",
+        "kind": "code",
+        "ms": 2339,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 173
+      },
+      {
+        "mode": "cascade",
+        "kind": "long-zh",
+        "ms": 2370,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 113
+      },
+      {
+        "mode": "cascade",
+        "kind": "zh-en-mix",
+        "ms": 873,
+        "ok": true,
+        "engine": "npu",
+        "winner": "npu",
+        "chars": 30
+      },
+      {
+        "mode": "augment",
+        "kind": "short-zh",
+        "ms": 1975,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 75
+      },
+      {
+        "mode": "augment",
+        "kind": "translate",
+        "ms": 998,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 104
+      },
+      {
+        "mode": "augment",
+        "kind": "code",
+        "ms": 1693,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 302
+      },
+      {
+        "mode": "augment",
+        "kind": "long-zh",
+        "ms": 1767,
+        "ok": true,
+        "engine": "hybrid",
+        "winner": "gpu",
+        "chars": 119
+      },
+      {
+        "mode": "augment",
+        "kind": "zh-en-mix",
+        "ms": 119,
+        "ok": true,
+        "engine": "gpu",
+        "winner": "gpu",
+        "chars": 24
+      }
+    ],
+    "bench": {
+      "ok": true,
+      "prompt": "用三句话解释：为什么本地推理的进程必须由宿主应用托管，而不能依赖一个独立的服务窗口？",
+      "maxTokens": 64,
+      "runs": 2,
+      "rows": [
+        {
+          "engine": "npu",
+          "mode": "direct",
+          "tokps": 34.92,
+          "firstTokenMs": 449,
+          "totalMs": 1776,
+          "runs": 2,
+          "samples": [
+            {
+              "engine": "npu",
+              "firstTokenMs": 455,
+              "totalMs": 1782,
+              "tokens": 62,
+              "textLen": 103,
+              "finish": "stop",
+              "tokps": 34.79236812570146
+            },
+            {
+              "engine": "npu",
+              "firstTokenMs": 443,
+              "totalMs": 1769,
+              "tokens": 62,
+              "textLen": 103,
+              "finish": "stop",
+              "tokps": 35.048049745619
+            }
+          ],
+          "ok": 2,
+          "errors": 0,
+          "p50": {
+            "tokps": 34.92,
+            "firstTokenMs": 449,
+            "totalMs": 1776
+          }
+        },
+        {
+          "engine": "gpu",
+          "mode": "direct",
+          "tokps": 127.49,
+          "firstTokenMs": 20,
+          "totalMs": 502,
+          "runs": 2,
+          "samples": [
+            {
+              "engine": "gpu",
+              "firstTokenMs": 21,
+              "totalMs": 505,
+              "tokens": 64,
+              "textLen": 120,
+              "finish": "length",
+              "tokps": 126.73267326732673
+            },
+            {
+              "engine": "gpu",
+              "firstTokenMs": 19,
+              "totalMs": 499,
+              "tokens": 64,
+              "textLen": 111,
+              "finish": "length",
+              "tokps": 128.2565130260521
+            }
+          ],
+          "ok": 2,
+          "errors": 0,
+          "p50": {
+            "tokps": 127.49,
+            "firstTokenMs": 20,
+            "totalMs": 502
+          }
+        },
+        {
+          "engine": "hybrid",
+          "mode": "route",
+          "tokps": 131.83,
+          "firstTokenMs": 19,
+          "totalMs": 486,
+          "runs": 2,
+          "samples": [
+            {
+              "engine": "gpu",
+              "escalated": false,
+              "firstTokenMs": 18,
+              "totalMs": 481,
+              "tokens": 64,
+              "tokps": 133.05613305613306,
+              "frames": 66,
+              "chars": 20425,
+              "finish": "length"
+            },
+            {
+              "engine": "gpu",
+              "escalated": false,
+              "firstTokenMs": 19,
+              "totalMs": 490,
+              "tokens": 64,
+              "tokps": 130.6122448979592,
+              "frames": 66,
+              "chars": 20410,
+              "finish": "length"
+            }
+          ],
+          "escalated": 0,
+          "ok": 2,
+          "errors": 0,
+          "p50": {
+            "tokps": 131.83,
+            "firstTokenMs": 19,
+            "totalMs": 486
+          }
+        },
+        {
+          "engine": "hybrid",
+          "mode": "cascade",
+          "tokps": 58.22,
+          "firstTokenMs": 446,
+          "totalMs": 1065,
+          "runs": 2,
+          "samples": [
+            {
+              "engine": "npu",
+              "escalated": false,
+              "firstTokenMs": 444,
+              "totalMs": 1066,
+              "tokens": 62,
+              "tokps": 58.16135084427767,
+              "frames": 59,
+              "chars": 13867,
+              "finish": "stop"
+            },
+            {
+              "engine": "npu",
+              "escalated": false,
+              "firstTokenMs": 448,
+              "totalMs": 1064,
+              "tokens": 62,
+              "tokps": 58.27067669172932,
+              "frames": 59,
+              "chars": 13865,
+              "finish": "stop"
+            }
+          ],
+          "escalated": 0,
+          "ok": 2,
+          "errors": 0,
+          "p50": {
+            "tokps": 58.22,
+            "firstTokenMs": 446,
+            "totalMs": 1065
+          }
+        },
+        {
+          "engine": "hybrid",
+          "mode": "race",
+          "tokps": 118.51,
+          "firstTokenMs": 474,
+          "totalMs": 476,
+          "runs": 2,
+          "samples": [
+            {
+              "engine": "hybrid",
+              "winner": "gpu",
+              "firstTokenMs": 417,
+              "totalMs": 419,
+              "tokens": 49,
+              "tokps": 116.94510739856803
+            },
+            {
+              "engine": "hybrid",
+              "winner": "gpu",
+              "firstTokenMs": 531,
+              "totalMs": 533,
+              "tokens": 64,
+              "tokps": 120.07504690431519
+            }
+          ],
+          "escalated": 0,
+          "ok": 2,
+          "errors": 0,
+          "p50": {
+            "tokps": 118.51,
+            "firstTokenMs": 474,
+            "totalMs": 476
+          }
+        },
+        {
+          "engine": "hybrid",
+          "mode": "augment",
+          "tokps": 120.38,
+          "firstTokenMs": 30,
+          "totalMs": 234,
+          "runs": 2,
+          "samples": [
+            {
+              "engine": "gpu",
+              "escalated": true,
+              "firstTokenMs": 48,
+              "totalMs": 248,
+              "tokens": 28,
+              "tokps": 112.90322580645162,
+              "frames": 29,
+              "chars": 9475,
+              "finish": "stop"
+            },
+            {
+              "engine": "gpu",
+              "escalated": true,
+              "firstTokenMs": 12,
+              "totalMs": 219,
+              "tokens": 28,
+              "tokps": 127.85388127853881,
+              "frames": 29,
+              "chars": 9460,
+              "finish": "stop"
+            }
+          ],
+          "escalated": 2,
+          "ok": 2,
+          "errors": 0,
+          "p50": {
+            "tokps": 120.38,
+            "firstTokenMs": 30,
+            "totalMs": 234
+          }
+        }
+      ],
+      "acceptRate": 1,
+      "at": "2026-10-30T18:30:27.917Z"
+    }
+  },
+  "ownership": {
+    "procsBefore": [],
+    "procsAfter": [],
+    "portsUsed": [
+      50160,
+      52029
+    ],
+    "directPortListening": false,
+    "note": "两个引擎由 NpuSupervisor 同一个 Job Object 托管，dispose() 后 tasklist 为空"
+  },
+  "wallMs": 81856
+}

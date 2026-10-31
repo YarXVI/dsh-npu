@@ -1,0 +1,1 @@
+{ "meta": { "title": "燧心 · 本机 NPU 运行时", "description": "按需在 AMD NPU / GPU 上跑本地模型：对话、翻译、向量检索，第五框架让 NPU+GPU 协同；进程随 DSH 起退，不留后台残留。" } }
